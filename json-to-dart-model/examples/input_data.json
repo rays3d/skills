@@ -1,0 +1,15 @@
+{
+  "id": 101,
+  "full_name": "Antigravity User",
+  "is_verified": true,
+  "membership_details": {
+    "plan_type": "premium",
+    "expires_at": "2026-12-31T23:59:59Z"
+  },
+  "tags": [
+    "developer",
+    "flutter",
+    "laravel"
+  ],
+  "bio": null
+}
