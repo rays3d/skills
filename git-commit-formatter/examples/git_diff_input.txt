@@ -1,3 +1,0 @@
-Modified: lib/presentation/providers/auth_provider.dart
-Added: lib/data/models/auth_response.dart
-Modified: app/Http/Controllers/AuthController.php (Changed return type to AuthResource)
