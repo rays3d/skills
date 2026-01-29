@@ -25,8 +25,10 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [Laravel MSC Architecture](#laravel-msc-architecture)
   - [Laravel Response Standardizer](#laravel-response-standardizer)
   - [Laravel to Flutter Bridge](#laravel-to-flutter-bridge)
+  - [Laravel Test Generator](#laravel-test-generator)
   - [License Header Adder](#license-header-adder)
   - [Previous Task](#previous-task)
+  - [Production Prep](#production-prep)
   - [Resource Extractor](#resource-extractor)
   - [Router Generator](#router-generator)
   - [Theme Manager](#theme-manager)
@@ -109,11 +111,17 @@ Standardize API responses in your Laravel applications.
 ### Laravel to Flutter Bridge
 Bridge the gap between Laravel and Flutter applications for seamless integration.
 
+### Laravel Test Generator
+Generate high-performance tests for Laravel applications using Pest PHP conventions. This skill ensures compliance with Laravel's testing standards and optimizes test performance.
+
 ### License Header Adder
 Automatically add license headers to your source files.
 
 ### Previous Task
 A utility to manage and revisit previous tasks in your project.
+
+### Production Prep
+Automates final preparations for Flutter apps, including splash screens, launcher icons, package renaming, dependency upgrades, and asset cleanup.
 
 ### Resource Extractor
 Extract and manage resources from your projects efficiently.
