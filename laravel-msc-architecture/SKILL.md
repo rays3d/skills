@@ -36,7 +36,8 @@ This skill mandates a strict separation of concerns. It forbids business logic i
 ### 3. Standardization Hooks
 * **Dates:** Resources must use `DateHelper::formatDateTime`.
 * **Pagination:** Controllers must use `PaginationHelper::paginate` before passing to Resource.
-* **Output:** Controllers must use `ResponseHelper`.
+* **Output:** Controllers must use `ResponseHelper`. It is the **only** allowed way to return JSON from Controllers.
+* **Testing:** All layers must be tested according to `laravel-test-generator` conventions (Service tests in `Feature/`, Controller tests in `Feature/Api/`, etc.).
 
 ## Capabilities
 

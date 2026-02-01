@@ -30,8 +30,9 @@ Create a standardized folder structure for a new feature to ensure separation of
     *   **Provider**: Use `Riverpod` (`Notifier` or `AsyncNotifier` preferred over `StateNotifier`).
     *   **Page**: Use `ConsumerWidget` or `HookConsumerWidget`.
 4.  **Routing**:
-    *   Add a static `GoRoute` definition in the page file or a separate routes file, compliant with `router-generator`.
+    *   **Delegate**: Call `router-generator`'s `add_route` prompt to register the new page. Do not perform manual registration in `app_router.dart`.
 5.  **Barrel Files**: Create a `path.dart` export file for the feature if the project uses them.
+6.  **Finalize**: Run `license-header-adder` on all newly generated files.
 
 ## Example
 User: "Create a chat feature."

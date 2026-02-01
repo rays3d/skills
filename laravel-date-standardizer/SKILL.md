@@ -22,6 +22,8 @@ Detects manual formatting chains that bypass the helper.
 ### 2. API Resource Enforcement
 When generating or reviewing Laravel API Resources (`JsonResource`), ensure date fields use the helper.
 
+* **Placement Policy:** Dates should be formatted in the **Resource** layer only. Do not format dates in Models or Services. Cross-check with `laravel-msc-architecture` for architectural compliance.
+
 **Before:**
 ```php
 return [

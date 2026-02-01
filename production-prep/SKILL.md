@@ -43,6 +43,11 @@ This skill consolidates five different manual tasks into single commands. It rel
 3.  **Report:** Lists files that are sitting in `assets/` but **never used** in code.
 4.  **Prompt:** "Found 12MB of unused images. Delete them?"
 
+---
+
+## Conflict Avoidance
+*   **Asset Management**: Asset cleanup detects usage via `AppAssets` references (centralized by `resource-extractor`). Ensure `flutter-asset-registrar` and `resource-extractor` have run before performing a cleanup to avoid false positives.
+
 ## Prompts
 
 ### `generate_config`

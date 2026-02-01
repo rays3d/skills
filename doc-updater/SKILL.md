@@ -43,7 +43,7 @@ If a document is found to be stale, the skill injects a standard warning block a
 **Input:** Stale Markdown + Fresh Code.
 **Logic:**
 1.  Preserve the "Overview" (as it often contains manual context/intent).
-2.  Regenerate the "Key Components" and "Usage" sections based on the new code.
+2.  **Delegate:** Call `doc-generator`'s `generate_docs` logic for "Key Components" and "Usage" sections to ensure consistent template usage.
 3.  Remove the Stale Warning.
 
 ---

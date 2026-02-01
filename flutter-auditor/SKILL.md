@@ -14,8 +14,8 @@ To ensure code quality, maintainability, and adherence to the project's centrali
 
 ## Instructions
 1.  **Static Analysis**:
-    * Run `flutter analyze` on the target file or directory.
-    * If errors or warnings exist, list them first with proposed fixes.
+    * Note: Static analysis and formatting are owned by `flutter-very-good-analysis`.
+    * Run `flutter analyze` only if `flutter-very-good-analysis` has not been run.
 
 2.  **Architectural Compliance Check** (Critical):
     * **Strings**: Scan for raw strings in `Text()` widgets. If found, flag them: "Hardcoded string detected. Move to `AppStrings`."

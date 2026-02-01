@@ -20,7 +20,9 @@ To ensure all files located in `assets/` (and subdirectories) are correctly defi
     * If `flutter:` or `assets:` keys are missing, create them.
     * Append missing paths using 2-space indentation relative to the `assets:` key.
     * **CRITICAL**: Do not remove existing comments or other dependencies.
-5.  **Confirm**: Run `flutter pub get` to ensure the YAML is valid.
+5.  **Confirm**:
+    * Run `flutter pub get` to ensure the YAML is valid.
+    * **Sync**: Automatically append the new asset constant to `lib/core/constants/app_assets.dart` per `resource-extractor` rules to ensure code-level access.
 
 ## Constraints
 * Do not use wildcards (e.g., `assets/images/`) unless specifically asked; prefer explicit file paths for better build optimization.

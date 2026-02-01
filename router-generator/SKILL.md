@@ -14,6 +14,9 @@ This skill acts as the gatekeeper for the routing configuration. It ensures that
 
 ## Rules Engine
 
+### 0. Unique Ownership
+This skill is the **unique owner** of the routing configuration files (`route_names.dart`, `app_router.dart`). Other skills (like `feature-scaffold`) must delegate route registration to this skill.
+
 ### 1. The "Named Route" Protocol
 Every new route must be registered to avoid magic strings:
 1.  **`RoutePath`**: The URL segment (e.g., `'/details/:id'`).

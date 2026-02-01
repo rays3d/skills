@@ -54,9 +54,13 @@ public function store(StoreRequest $request): JsonResponse
             return MyModel::create($request->validated());
         });
 
-        return ResponseHelper::created($data, 'Resource created successfully.');
+        // Always map through a Resource before returning
+        $resource = new MyResource($data);
+
+        return ResponseHelper::created($resource, 'Resource created successfully.');
     } catch (\Throwable $e) {
         ResponseHelper::logError('Failed to create resource', $e);
         return ResponseHelper::error('Unable to create resource.', 500);
     }
 }
+```

@@ -15,11 +15,10 @@ When reviewing code, follow these steps:
 
 1. **Correctness**: Does the code do what it's supposed to?
 2. **Edge cases**: Are error conditions handled?
-3. **Style**: Does it follow project conventions and `very_good_analysis`?
-4. **Stack Alignment**:
-    *   **Riverpod** only (No `Provider` package).
-    *   **GoRouter** only (No `Navigator` push/pop).
-    *   **Laravel 12**: Ensure `Service` layer usage (No logic in Controllers).
+3. **Formatting & Static Analysis**: Delegate to `flutter-very-good-analysis` (Run `dart format` and check lints).
+4. **Stack Alignment & Architecture**:
+    *   **Flutter**: Delegate to `flutter-auditor` for Riverpod, GoRouter, and Centralization (Strings/Dimens/Assets) checks.
+    *   **Laravel 12**: Delegate to `laravel-msc-architecture` to ensure MSC+RPR compliance and Service layer usage.
 5. **Performance**: Are there obvious inefficiencies?
 
 ## How to provide feedback
