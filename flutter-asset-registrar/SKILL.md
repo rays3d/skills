@@ -1,6 +1,10 @@
 ---
+id: skill_flutter_asset_registrar
 name: flutter-asset-registrar
+version: 1.0.0
 description: Scans the project's assets directory and registers new files in pubspec.yaml. Use this when the user adds new images or fonts.
+tags: [flutter, assets, build]
+permissions: [read_file, write_file, run_command]
 ---
 
 # Asset Registration Skill

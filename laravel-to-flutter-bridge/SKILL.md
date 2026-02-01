@@ -1,6 +1,10 @@
 ---
+id: skill_laravel_to_flutter_bridge
 name: laravel-to-flutter-bridge
+version: 1.0.0
 description: Translates Laravel Eloquent Resources and Enums into Flutter Dart Models and Providers.
+tags: [laravel, flutter, integration]
+permissions: [read_code, write_file]
 ---
 
 # Laravel to Flutter Bridge Skill
@@ -26,9 +30,10 @@ This skill automates the creation of Flutter data structures based on Laravel ba
 
 ### B. The Provider (`lib/features/X/presentation/providers/`)
 
-- Create a `ChangeNotifier` class.
-- Include a `loading` state, an `errorMessage` string, and the data object.
-- Use `Dio` or `http` to fetch from the Laravel API endpoint.
+- Create a `Notifier` or `AsyncNotifier` class (Riverpod).
+- Use `ref.read` or `ref.watch` to access repositories.
+- Handle state using `AsyncValue<T>` for robust loading/error states.
+- Avoid `ChangeNotifier` to ensure strict state immutability.
 
 ## Style Guidelines
 

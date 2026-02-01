@@ -1,32 +1,52 @@
 ---
+id: skill_json_to_dart_model
 name: json-to-dart-model
+version: 1.0.0
 description: Converts JSON data snippets into Flutter/Dart data models with JsonSerializable support.
+tags: [flutter, data, code_generation]
+permissions: [write_file]
 ---
 
 # JSON to Dart Model Skill
 
-This skill converts raw JSON data or API responses into structured, type-safe Dart classes compatible with the `json_serializable` and `provider` ecosystem.
+## Goal
+To quickly generate type-safe Dart models from raw JSON responses, ensuring they are compatible with `json_serializable` and `freezed` (if used).
 
 ## Instructions
+1.  **Input Analysis**:
+    *   Review the provided JSON snippet.
+    *   Determine the class name (e.g., if JSON is a user object, class is `UserModel`).
 
-1. **Analyze the Input**: Examine the JSON object provided.
-2. **Map Types to Dart**:
-   - `string` -> `String`
-   - `number (integer)` -> `int`
-   - `number (decimal)` -> `double`
-   - `boolean` -> `bool`
-   - `array` -> `List<Type>`
-   - `null` -> `Type?` (Nullable)
-   - Nested Objects -> Create separate classes.
+2.  **Field Mapping**:
+    *   Map JSON types to Dart types:
+        *   `string` -> `String`
+        *   `number` -> `int` or `double`
+        *   `boolean` -> `bool`
+        *   `array` -> `List<T>`
+        *   `object` -> `AnotherClass`
+    *   Detect nullable fields (if context implies).
 
-3. **Structure the Output**:
-   - Create a separate class for each nested object.
-   - Use `@JsonSerializable(fieldRename: FieldRename.snake)` to handle Laravel backend responses automatically.
-   - Include `factory Class.fromJson` and `Map<String, dynamic> toJson()` boilerplate.
-   - Always include the `part 'filename.g.dart';` directive.
+3.  **Code Generation**:
+    *   Create a Dart file with `JsonSerializable` annotations.
+    *   Include `factory keys`.
+    *   Include `toJson` method.
 
-## Style Guidelines
+## Example Output
+```dart
+import 'package:json_annotation/json_annotation.dart';
 
-- **Windows Environment**: Assume the user will run `dart run build_runner build` in PowerShell 7.
-- **Immutability**: Use `final` for all fields (Provider compatibility).
-- **Organization**: Follow Feature-First Layered Architecture (Models go in `data/models`).
+part 'user_model.g.dart';
+
+@JsonSerializable()
+class UserModel {
+  final int id;
+  final String name;
+  @JsonKey(name: 'email_address')
+  final String email;
+
+  UserModel({required this.id, required this.name, required this.email});
+
+  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
+}
+```

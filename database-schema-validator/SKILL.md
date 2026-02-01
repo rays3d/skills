@@ -1,6 +1,10 @@
 ---
+id: skill_database_schema_validator
 name: database-schema-validator
+version: 1.0.0
 description: Validates MySQL schema files/migrations for Laravel compliance, naming safety, and strict policy.
+tags: [database, laravel, mysql, safety]
+permissions: [run_command]
 ---
 
 # Database Schema Validator Skill (Laravel/MySQL)

@@ -1,6 +1,12 @@
 # Google Antigravity IDE Skills for Flutter & Laravel Apps
 
-Welcome to the Google Antigravity IDE Skills repository! This folder contains a collection of skills designed to enhance your development experience for Flutter and Laravel applications. Each skill is tailored to address specific development needs, streamline workflows, and improve productivity.
+Welcome to the Google Antigravity IDE Skills repository! This folder contains a collection of skills designed to enhance your development experience for Flutter and Laravel applications.
+
+> **Stack Enforcement**
+> This repository strictly enforces the following technology stack:
+> *   **Flutter**: Riverpod (State Management), GoRouter (Navigation), Very Good Analysis (Linting).
+> *   **Laravel**: Version 12, Service-Layer Architecture, Pest Testing.
+> *   Legacy patterns (Provider, Navigator 1.0, Controllers with logic) are flagged as violations.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -17,8 +23,8 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [Feature Scaffold](#feature-scaffold)
   - [Flutter Asset Registrar](#flutter-asset-registrar)
   - [Flutter Auditor](#flutter-auditor)
+  - [Flutter Very Good Analysis](#flutter-very-good-analysis)
   - [Git Smart Commit](#git-smart-commit)
-  - [Gorouter Manager](#gorouter-manager)
   - [JSON to Dart Model](#json-to-dart-model)
   - [Laravel Date Standardizer](#laravel-date-standardizer)
   - [Laravel Log Bridge](#laravel-log-bridge)
@@ -50,7 +56,7 @@ Automatically manage and enforce barrel files in your project for better module 
 Monitor and manage build_runner tasks in your Flutter projects.
 
 ### Code Review
-Streamline the code review process with tools and guidelines for maintaining code quality.
+Streamline the code review process with tools that enforce **Riverpod**, **GoRouter**, and **Very Good Analysis** standards.
 
 ### Database Schema Validator
 Validate your database schema to ensure it adheres to best practices and project requirements.
@@ -71,19 +77,20 @@ Ensure your environment variables are properly configured and secure.
 Analyze and interrogate features in your codebase for better understanding and maintenance.
 
 ### Feature Scaffold
-Quickly scaffold new features for your projects.
+Quickly scaffold new features using a strict **Riverpod** + **GoRouter** Clean Architecture structure.
 
 ### Flutter Asset Registrar
 Manage and register Flutter assets efficiently.
 
 ### Flutter Auditor
-Audit your Flutter projects for potential issues and improvements.
+Audit your Flutter projects for legacy code violations (e.g., usage of `Provider` or `Navigator.push`).
+
+### Flutter Very Good Analysis
+Enforces "Very Good Analysis" rules and standard formatting (100 char limit) for Flutter projects.
 
 ### Git Smart Commit
 Enhance your Git commit workflow with smart commit messages and automation.
 
-### Gorouter Manager
-Simplify the management of routes in your Flutter projects using Gorouter.
 
 ### JSON to Dart Model
 Easily convert JSON objects to Dart models for use in your Flutter applications.
@@ -95,7 +102,7 @@ Standardize date formats across your Laravel applications.
 Integrate and manage logging in your Laravel projects.
 
 ### Laravel MSC Architecture
-Implement the Model-Service-Controller (MSC) architecture in your Laravel applications.
+Implement the Model-Service-Controller (MSC) architecture in your Laravel 12 applications.
 
 #### Examples
 - `Product.php`: Example of a model.
@@ -109,7 +116,7 @@ Implement the Model-Service-Controller (MSC) architecture in your Laravel applic
 Standardize API responses in your Laravel applications.
 
 ### Laravel to Flutter Bridge
-Bridge the gap between Laravel and Flutter applications for seamless integration.
+Bridge the gap between Laravel and Flutter applications by regenerating **Riverpod AsyncNotifiers** from Laravel Resources.
 
 ### Laravel Test Generator
 Generate high-performance tests for Laravel applications using Pest PHP conventions. This skill ensures compliance with Laravel's testing standards and optimizes test performance.
@@ -127,7 +134,7 @@ Automates final preparations for Flutter apps, including splash screens, launche
 Extract and manage resources from your projects efficiently.
 
 ### Router Generator
-Generate and manage routes for your applications.
+Generate and manage strict **GoRouter** configurations for your applications.
 
 ### Theme Manager
 Manage and apply themes in your Flutter applications.

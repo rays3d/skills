@@ -1,6 +1,10 @@
 ---
+id: skill_feature_scaffold
 name: feature-scaffold
+version: 1.0.0
 description: Generates the directory structure and boilerplate files for a new Flutter feature using Clean Architecture. Trigger this when the user says "create a new feature" or "scaffold X".
+tags: [flutter, architecture, scaffold]
+permissions: [write_file]
 ---
 
 # Feature Scaffolding Skill
@@ -15,15 +19,19 @@ Create a standardized folder structure for a new feature to ensure separation of
     * `lib/features/<name>/data/repositories`
     * `lib/features/<name>/domain/entities`
     * `lib/features/<name>/domain/repositories`
-    * `lib/features/<name>/presentation/bloc` (or `providers`)
+    * `lib/features/<name>/presentation/providers` (Riverpod only)
     * `lib/features/<name>/presentation/pages`
     * `lib/features/<name>/presentation/widgets`
 3.  **Generate Files**:
-    * Create a clean Dart file in each directory.
-    * **Domain Entity**: Must be a pure Dart class with `equatable`.
-    * **Repository Interface**: Abstract class in `domain/repositories`.
-    * **Implementation**: Concrete class in `data/repositories` implementing the domain interface.
-4.  **Barrel Files**: Create a `path.dart` export file for the feature if the project uses them.
+    *   Create a clean Dart file in each directory.
+    *   **Domain Entity**: Must be a pure Dart class with `equatable` or `freezed`.
+    *   **Repository Interface**: Abstract class in `domain/repositories`.
+    *   **Implementation**: Concrete class in `data/repositories` implementing the domain interface.
+    *   **Provider**: Use `Riverpod` (`Notifier` or `AsyncNotifier` preferred over `StateNotifier`).
+    *   **Page**: Use `ConsumerWidget` or `HookConsumerWidget`.
+4.  **Routing**:
+    *   Add a static `GoRoute` definition in the page file or a separate routes file, compliant with `router-generator`.
+5.  **Barrel Files**: Create a `path.dart` export file for the feature if the project uses them.
 
 ## Example
 User: "Create a chat feature."

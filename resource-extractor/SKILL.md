@@ -1,6 +1,10 @@
 ---
+id: skill_resource_extractor
 name: resource-extractor
+version: 1.0.0
 description: Enforces centralization of primitives. Triggers when writing UI code involving text, layout dimensions, asset paths, or constants.
+tags: [code_quality, flutter, refactoring]
+permissions: [read_code, write_file]
 ---
 
 # Resource Extractor Skill

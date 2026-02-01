@@ -1,6 +1,10 @@
 ---
+id: skill_theme_manager
 name: theme-manager
+version: 1.0.0
 description: Manages centralized application theming (colors, typography, theme data). Triggers when styling widgets or adding new visual properties.
+tags: [flutter, theme, ui]
+permissions: [read_code, write_file]
 ---
 
 # Theme Guardian Skill

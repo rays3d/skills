@@ -1,6 +1,10 @@
 ---
+id: skill_license_header_adder
 name: license-header-adder
+version: 1.0.0
 description: Injects a standardized license/copyright header into the top of code files (.dart, .php, .tsx, .ts, .js).
+tags: [code_quality, license, legal]
+permissions: [write_file]
 ---
 
 # License Header Adder Skill
