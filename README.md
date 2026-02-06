@@ -24,7 +24,8 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [Flutter Asset Registrar](#flutter-asset-registrar)
   - [Flutter Auditor](#flutter-auditor)
   - [Flutter Very Good Analysis](#flutter-very-good-analysis)
-  - [Git Smart Commit](#git-smart-commit)
+  - [Git Smart Commit (Flutter & Laravel)](#git-smart-commit-flutter--laravel)
+  - [Git Smart Commit (React)](#git-smart-commit-react)
   - [JSON to Dart Model](#json-to-dart-model)
   - [Laravel Date Standardizer](#laravel-date-standardizer)
   - [Laravel Log Bridge](#laravel-log-bridge)
@@ -35,6 +36,9 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [License Header Adder](#license-header-adder)
   - [Previous Task](#previous-task)
   - [Production Prep](#production-prep)
+  - [React Component Generator](#react-component-generator)
+  - [React Hook Extractor](#react-hook-extractor)
+  - [React Lint Fixer](#react-lint-fixer)
   - [Resource Extractor](#resource-extractor)
   - [Router Generator](#router-generator)
   - [Theme Manager](#theme-manager)
@@ -88,8 +92,11 @@ Audit your Flutter projects for legacy code violations (e.g., usage of `Provider
 ### Flutter Very Good Analysis
 Enforces "Very Good Analysis" rules and standard formatting (100 char limit) for Flutter projects.
 
-### Git Smart Commit
-Enhance your Git commit workflow with smart commit messages and automation.
+### Git Smart Commit (Flutter & Laravel)
+Enhance your Git commit workflow with smart commit messages and automation for Flutter and Laravel framesworks.
+
+### Git Smart Commit (React)
+Staging and committing React project changes using Conventional Commits.
 
 
 ### JSON to Dart Model
@@ -129,6 +136,15 @@ A utility to manage and revisit previous tasks in your project.
 
 ### Production Prep
 Automates final preparations for Flutter apps, including splash screens, launcher icons, package renaming, dependency upgrades, and asset cleanup.
+
+### React Component Generator
+Generates a React component folder with a functional component, styles, and a test file.
+
+### React Hook Extractor
+Extracts business or state logic from a component into a reusable custom hook.
+
+### React Lint Fixer
+Automatically detects and fixes React/JS linting issues using ESLint.
 
 ### Resource Extractor
 Extract and manage resources from your projects efficiently.
