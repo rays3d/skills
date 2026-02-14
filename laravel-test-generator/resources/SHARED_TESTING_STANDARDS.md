@@ -1,13 +1,28 @@
----
-id: skill_laravel_pest
-name: Laravel Pest Architect
-version: 4.0.0
-description: Pure Pest PHP testing conventions for Laravel applications. Generates high-performance tests using SQLite in-memory databases with functional Pest syntax.
-tags: [laravel, testing, pest, tdd, php]
-permissions: [read_code, write_file, execute_terminal]
+# Testing Standards for Laravel + Pest PHP
+
+> **Portable Guide** — Adopt these standards for any Laravel backend project.
+> Requires **PHP 8.4+**, **Laravel 12+**, and **Pest PHP 4.x**.
+
 ---
 
-# Laravel Pest Testing Guide
+## Table of Contents
+
+1. [Setup](#1-setup)
+2. [Directory Structure](#2-directory-structure)
+3. [Configuration](#3-configuration)
+4. [Pest Style Guide](#4-pest-style-guide)
+5. [Assertions](#5-assertions)
+6. [Datasets](#6-datasets)
+7. [Mocking & Fakes](#7-mocking--fakes)
+8. [Architecture Rules](#8-architecture-rules)
+9. [Factories & Fixtures](#9-factories--fixtures)
+10. [Best Practices](#10-best-practices)
+11. [TestCase Helpers](#11-testcase-helpers)
+12. [Running Tests](#12-running-tests)
+13. [CI/CD Integration](#13-cicd-integration)
+14. [PR Checklist](#14-pr-checklist)
+
+---
 
 ## 1. Setup
 
@@ -369,6 +384,27 @@ arch('resources extend json resource')
     ->toExtend('Illuminate\Http\Resources\Json\JsonResource');
 ```
 
+### Additional Rules to Consider
+
+```php
+// Controllers should be invokable or suffixed
+arch('controllers are final')
+    ->expect('App\Http\Controllers')
+    ->toBeFinal();
+
+// No direct env() usage outside config files
+arch('no env outside config')
+    ->expect('env')
+    ->not->toBeUsed();
+
+// Strict types declaration
+arch('strict types')
+    ->expect('App')
+    ->toUseStrictTypes();
+```
+
+> **Tip**: Start with a few rules and expand as the codebase matures. Overly strict rules on a new project add friction.
+
 ---
 
 ## 9. Factories & Fixtures
@@ -506,142 +542,7 @@ it('non-author cannot update post', function () {
 
 ---
 
-## 11. Scaffold Templates
-
-These templates generate tests adhering to the above standards.
-
-### Feature Controller Test
-**Trigger:** `/test gen Http/Controllers/PostController`
-
-```php
-<?php
-
-use App\Models\User;
-use App\Models\Post;
-use Symfony\Component\HttpFoundation\Response;
-
-beforeEach(function () {
-    $this->user = User::factory()->create();
-});
-
-it('can list posts', function () {
-    Post::factory()->for($this->user)->count(3)->create();
-
-    $this->actingAs($this->user)
-        ->getJson(route('posts.index'))
-        ->assertOk()
-        ->assertJsonStructure(['data']);
-});
-
-it('can create post', function () {
-    $this->actingAs($this->user)
-        ->postJson(route('posts.store'), [
-            'title' => 'My Post',
-            'body' => 'Content here',
-        ])
-        ->assertCreated()
-        ->assertJsonPath('data.title', 'My Post');
-
-    $this->assertDatabaseHas('posts', ['title' => 'My Post']);
-});
-
-it('can show post', function () {
-    $post = Post::factory()->for($this->user)->create();
-
-    $this->actingAs($this->user)
-        ->getJson(route('posts.show', $post))
-        ->assertOk()
-        ->assertJsonPath('data.id', $post->id);
-});
-
-it('can update post', function () {
-    $post = Post::factory()->for($this->user)->create();
-
-    $this->actingAs($this->user)
-        ->putJson(route('posts.update', $post), [
-            'title' => 'Updated Title',
-        ])
-        ->assertOk()
-        ->assertJsonPath('data.title', 'Updated Title');
-});
-
-it('can delete post', function () {
-    $post = Post::factory()->for($this->user)->create();
-
-    $this->actingAs($this->user)
-        ->deleteJson(route('posts.destroy', $post))
-        ->assertOk();
-
-    $this->assertSoftDeleted($post);
-});
-```
-
-### Service Test
-**Trigger:** `/test gen Services/PaymentService`
-
-```php
-<?php
-
-use App\Models\User;
-use App\Services\PaymentService;
-
-beforeEach(function () {
-    $this->service = new PaymentService;
-});
-
-it('can process payment', function () {
-    $user = User::factory()->create();
-
-    $result = $this->service->charge($user, 100);
-
-    expect($result)
-        ->status->toBe('completed')
-        ->amount->toBe(100);
-
-    $this->assertDatabaseHas('payments', [
-        'user_id' => $user->id,
-        'amount' => 100,
-    ]);
-});
-
-it('throws exception for invalid amount', function () {
-    $user = User::factory()->create();
-
-    expect(fn () => $this->service->charge($user, -100))
-        ->toThrow(InvalidArgumentException::class);
-});
-```
-
-### Policy Test
-**Trigger:** `/test gen Policies/PostPolicy`
-
-```php
-<?php
-
-use App\Models\User;
-use App\Models\Post;
-use App\Policies\PostPolicy;
-
-beforeEach(function () {
-    $this->policy = new PostPolicy;
-    $this->owner = User::factory()->create();
-    $this->post = Post::factory()->for($this->owner, 'user')->create();
-});
-
-it('allows owner to update post', function () {
-    expect($this->owner->can('update', $this->post))->toBeTrue();
-});
-
-it('denies non-owner from updating post', function () {
-    $otherUser = User::factory()->create();
-
-    expect($otherUser->can('update', $this->post))->toBeFalse();
-});
-```
-
----
-
-## 12. TestCase Helpers
+## 11. TestCase Helpers
 
 Define reusable helpers in `tests/TestCase.php` to reduce duplication:
 
@@ -688,7 +589,7 @@ beforeEach(function () {
 
 ---
 
-## 13. Running Tests
+## 12. Running Tests
 
 ### Standard Run
 
@@ -732,7 +633,7 @@ php artisan test --coverage --min=80
 
 ---
 
-## 14. CI/CD Integration
+## 13. CI/CD Integration
 
 ### GitHub Actions Example
 
@@ -798,7 +699,7 @@ php artisan test --coverage --min=80
 
 ---
 
-## 15. PR Checklist
+## 14. PR Checklist
 
 Before merging any pull request, every developer must verify:
 
@@ -815,4 +716,19 @@ Before merging any pull request, every developer must verify:
 
 ---
 
-*Last Updated: 2026-02-14*
+## Quick Reference Card
+
+| What                | How                                              |
+| ------------------- | ------------------------------------------------ |
+| Create feature test | `php artisan make:test --pest FeatureNameTest`   |
+| Create unit test    | `php artisan make:test --pest --unit HelperTest` |
+| Run all tests       | `php artisan test --compact`                     |
+| Run one file        | `php artisan test tests/Feature/PostTest.php`    |
+| Run by name         | `php artisan test --filter="can create"`         |
+| Run coverage        | `php artisan test --coverage --min=80`           |
+| Format code         | `vendor/bin/pint`                                |
+| Architecture rules  | `php artisan test --filter=Arch`                 |
+
+---
+
+*Last Updated: 2026-02-12*
