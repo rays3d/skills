@@ -34,6 +34,7 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [Laravel to Flutter Bridge](#laravel-to-flutter-bridge)
   - [Laravel Test Generator](#laravel-test-generator)
   - [License Header Adder](#license-header-adder)
+  - [Organize Docs](#organize-docs)
   - [Previous Task](#previous-task)
   - [Production Prep](#production-prep)
   - [React Component Generator](#react-component-generator)
@@ -130,6 +131,9 @@ Generate high-performance tests for Laravel applications using Pest PHP conventi
 
 ### License Header Adder
 Automatically add license headers to your source files.
+
+### Organize Docs
+Reorganize documentation folders into a standardized, navigable structure.
 
 ### Previous Task
 A utility to manage and revisit previous tasks in your project.
