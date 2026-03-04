@@ -23,15 +23,20 @@ Welcome to the Google Antigravity IDE Skills repository! This folder contains a 
   - [Feature Scaffold](#feature-scaffold)
   - [Flutter Asset Registrar](#flutter-asset-registrar)
   - [Flutter Auditor](#flutter-auditor)
+  - [Flutter Consumer Widget Generator](#flutter-consumer-widget-generator)
+  - [Flutter Riverpod Controller Generator](#flutter-riverpod-controller-generator)
   - [Flutter Very Good Analysis](#flutter-very-good-analysis)
   - [Git Smart Commit (Flutter & Laravel)](#git-smart-commit-flutter--laravel)
   - [Git Smart Commit (React)](#git-smart-commit-react)
   - [Inertia Page Scaffold](#inertia-page-scaffold)
   - [JSON to Dart Model](#json-to-dart-model)
+  - [Laravel API Resource Generator](#laravel-api-resource-generator)
+  - [Laravel Controller Generator](#laravel-controller-generator)
   - [Laravel Date Standardizer](#laravel-date-standardizer)
   - [Laravel Enum Generator](#laravel-enum-generator)
   - [Laravel Log Bridge](#laravel-log-bridge)
   - [Laravel Middleware Generator](#laravel-middleware-generator)
+  - [Laravel Model Generator](#laravel-model-generator)
   - [Laravel MSC Architecture](#laravel-msc-architecture)
   - [Laravel Response Standardizer](#laravel-response-standardizer)
   - [Laravel Service Generator](#laravel-service-generator)
@@ -96,6 +101,12 @@ Manage and register Flutter assets efficiently.
 ### Flutter Auditor
 Audit your Flutter projects for legacy code violations (e.g., usage of `Provider` or `Navigator.push`).
 
+### Flutter Consumer Widget Generator
+Scaffolds UI components enforcing Riverpod 3.0 rules, forbidding StatelessWidget if watching state, and maximizing widget extraction.
+
+### Flutter Riverpod Controller Generator
+Scaffolds Riverpod 3.0 Notifier/AsyncNotifier controllers dedicated strictly to business logic and decoupled from UI.
+
 ### Flutter Very Good Analysis
 Enforces "Very Good Analysis" rules and standard formatting (100 char limit) for Flutter projects.
 
@@ -111,6 +122,12 @@ Scaffolds Inertia/React pages and components matching the project's exact direct
 ### JSON to Dart Model
 Easily convert JSON objects to Dart models for use in your Flutter applications.
 
+### Laravel API Resource Generator
+Scaffolds Eloquent API Resources for standardizing output formatting, explicitly typing return schemas, and enforcing DateHelper usage.
+
+### Laravel Controller Generator
+Scaffolds Skinny Controllers enforcing Model-Service-Controller (MSC) constraints, prohibiting inline validation and direct DB access.
+
 ### Laravel Date Standardizer
 Standardize date formats across your Laravel applications.
 
@@ -122,6 +139,9 @@ Integrate and manage logging in your Laravel projects.
 
 ### Laravel Middleware Generator
 Scaffolds custom middleware classes following project conventions — ResponseHelper-based denials, PHPDoc blocks, and bootstrap/app.php registration reminders.
+
+### Laravel Model Generator
+Scaffolds Eloquent Models adhering strictly to Laravel 12+ standards, enforcing `casts()` methods, precise relationship return types, and associated factories/seeders.
 
 ### Laravel MSC Architecture
 Implement the Model-Service-Controller (MSC) architecture in your Laravel 12 applications.
