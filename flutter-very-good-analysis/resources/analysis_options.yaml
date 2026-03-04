@@ -1,5 +1,10 @@
 include: package:very_good_analysis/analysis_options.yaml
 
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+
 linter:
   rules:
     always_declare_return_types: true
@@ -22,7 +27,6 @@ linter:
     avoid_init_to_null: true
     avoid_js_rounded_ints: true
     avoid_multiple_declarations_per_line: true
-    avoid_null_checks_in_equality_operators: true
     avoid_print: true
     avoid_private_typedef_functions: true
     avoid_redundant_argument_values: true
@@ -198,7 +202,6 @@ linter:
     use_enums: true
     use_full_hex_values_for_flutter_colors: true
     use_function_type_syntax_for_parameters: true
-    use_if_null_to_convert_nulls_to_bools: true
     use_is_even_rather_than_modulo: true
     use_key_in_widget_constructors: true
     use_late_for_private_fields_and_variables: true
@@ -225,4 +228,4 @@ linter:
 
 formatter:
   trailing_commas: automate
-  page_width: 100
+  page_width: 80
